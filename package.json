@@ -1,0 +1,32 @@
+{
+  "name": "invoyz",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "author": "Matt Parrish <matt.r.parrish@gmail.com>",
+  "scripts": {
+    "build-and-test": "yarn run build -s && yarn run test:build -s",
+    "dev": "next",
+    "build": "next build",
+    "flow": "flow",
+    "precommit": "kcd-scripts precommit",
+    "prettier": "kcd-scripts format",
+    "publish-release": "echo running semantic-release && semantic-release",
+    "start": "next start",
+    "test": "kcd-scripts test",
+    "test:cover": "kcd-scripts test --coverage",
+    "test:update": "yarn run test:cover -s -- --updateSnapshot",
+    "test:build": "kcd-scripts test --no-watch",
+    "validate": "kcd-scripts validate lint,build-and-test,test:cover"
+  },
+  "dependencies": {
+    "next": "^4.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "8.1.2",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "flow-bin": "0.62.0",
+    "kcd-scripts": "0.31.1"
+  }
+}

@@ -1,0 +1,16 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/.*
+
+[include]
+components
+lib
+pages
+
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
