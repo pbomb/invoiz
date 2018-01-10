@@ -1,7 +1,10 @@
-import Head from './head'
+// @flow
+
+import React from 'react'
 import Link from 'next/link'
 
 const links = [
+  // { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
@@ -12,26 +15,23 @@ const Nav = () => (
     <ul>
       <li>
         <Link prefetch href="/">
-          <a>Home</a>
+          Home
         </Link>
       </li>
       <ul>
-        {links.map(
-          ({ key, href, label }) => (
-            <li key={key}>
-              <Link href={href}>
-                <a>{label}</a>
-              </Link>
-            </li>
-          )
-        )}
+        {links.map(({ key, href, label }) => (
+          <li key={key}>
+            <Link href={href}>{label}</Link>
+          </li>
+        ))}
       </ul>
     </ul>
 
     <style jsx>{`
       :global(body) {
         margin: 0;
-        font-family: -apple-system,BlinkMacSystemFont,Avenir Next,Avenir,Helvetica,sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+          Helvetica, sans-serif;
       }
       nav {
         text-align: center;

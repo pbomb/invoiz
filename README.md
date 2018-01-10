@@ -1,23 +1,47 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+* [Table of Contents](#table-of-contents)
+* [Questions? Feedback?](#questions-feedback)
+* [Folder Structure](#folder-structure)
+* [Available Scripts](#available-scripts)
+  * [`npm run dev`](#npm-run-dev)
+  * [`npm run build`](#npm-run-build)
+  * [`npm run start`](#npm-run-start)
+* [Using CSS](#using-css)
+* [Adding Components](#adding-components)
+  * [`./components/simple.js`](#componentssimplejs)
+  * [`./components/complex.js`](#componentscomplexjs)
+* [Fetching Data](#fetching-data)
+  * [`./pages/stars.js`](#pagesstarsjs)
+* [Custom Server](#custom-server)
+* [Syntax Highlighting](#syntax-highlighting)
+* [Deploy to Now](#deploy-to-now)
+* [Something Missing?](#something-missing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
 
 Find the most recent version of this guide at [here](https://github.com/segmentio/create-next-app/blob/master/lib/templates/default/README.md). And check out [Next.js repo](https://github.com/zeit/next.js) for the most up-to-date info.
 
 ## Table of Contents
 
-- [Questions? Feedback?](#questions-feedback)
-- [Folder Structure](#folder-structure)
-- [Available Scripts](#available-scripts)
-  - [npm run dev](#npm-run-dev)
-  - [npm run build](#npm-run-build)
-  - [npm run start](#npm-run-start)
-- [Using CSS](#using-css)
-- [Adding Components](#adding-components)
-- [Fetching Data](#fetching-data)
-- [Custom Server](#custom-server)
-- [Syntax Highlighting](#syntax-highlighting)
-- [Using the `static` Folder](#using-the-static-folder)
-- [Deploy to Now](#deploy-to-now)
-- [Something Missing?](#something-missing)
+* [Questions? Feedback?](#questions-feedback)
+* [Folder Structure](#folder-structure)
+* [Available Scripts](#available-scripts)
+  * [npm run dev](#npm-run-dev)
+  * [npm run build](#npm-run-build)
+  * [npm run start](#npm-run-start)
+* [Using CSS](#using-css)
+* [Adding Components](#adding-components)
+* [Fetching Data](#fetching-data)
+* [Custom Server](#custom-server)
+* [Syntax Highlighting](#syntax-highlighting)
+* [Using the `static` Folder](#using-the-static-folder)
+* [Deploy to Now](#deploy-to-now)
+* [Something Missing?](#something-missing)
 
 ## Questions? Feedback?
 
@@ -49,10 +73,10 @@ other static resources like images or compiled CSS in there.
 
 Out of the box, we get:
 
-- Automatic transpilation and bundling (with webpack and babel)
-- Hot code reloading
-- Server rendering and indexing of `./pages`
-- Static file serving. `./static/` is mapped to `/static/`
+* Automatic transpilation and bundling (with webpack and babel)
+* Hot code reloading
+* Server rendering and indexing of `./pages`
+* Static file serving. `./static/` is mapped to `/static/`
 
 Read more about [Next's Routing](https://github.com/zeit/next.js#routing)
 
@@ -115,9 +139,7 @@ We recommend keeping React components in `./components` and they should look lik
 ### `./components/simple.js`
 
 ```jsx
-const Simple = () => (
-  <div>Simple Component</div>
-)
+const Simple = () => <div>Simple Component</div>
 
 export default Simple // don't forget to export default!
 ```
@@ -129,10 +151,10 @@ import { Component } from 'react'
 
 class Complex extends Component {
   state = {
-    text: 'World'
+    text: 'World',
   }
 
-  render () {
+  render() {
     const { text } = this.state
     return <div>Hello {text}</div>
   }
@@ -148,7 +170,7 @@ You can fetch data in `pages` components using `getInitialProps` like this:
 ### `./pages/stars.js`
 
 ```jsx
-const Page = (props) => <div>Next stars: {props.stars}</div>
+const Page = props => <div>Next stars: {props.stars}</div>
 
 Page.getInitialProps = async ({ req }) => {
   const res = await fetch('https://api.github.com/repos/zeit/next.js')
@@ -197,8 +219,7 @@ app.prepare().then(() => {
     } else {
       handle(req, res, parsedUrl)
     }
-  })
-  .listen(3000, (err) => {
+  }).listen(3000, err => {
     if (err) throw err
     console.log('> Ready on http://localhost:3000')
   })
@@ -221,11 +242,11 @@ To configure the syntax highlighting in your favorite text editor, head to the [
 
 2. Run `now` from your project directory. You will see a **now.sh** URL in your output like this:
 
-    ```
-    > Ready! https://your-project-dirname-tpspyhtdtk.now.sh (copied to clipboard)
-    ```
+   ```
+   > Ready! https://your-project-dirname-tpspyhtdtk.now.sh (copied to clipboard)
+   ```
 
-    Paste that URL into your browser when the build is complete, and you will see your deployed app.
+   Paste that URL into your browser when the build is complete, and you will see your deployed app.
 
 You can find more details about [`now` here](https://zeit.co/now).
 
